@@ -115,7 +115,7 @@ prior = pyabc.Distribution(**{key: pyabc.RV("uniform", lb, ub - lb)
 
 redis_sampler = RedisEvalParallelSampler(host=args.ip, port=args.port, look_ahead=False, wait_for_all_samples=True)
 
-acceptor = pyabc.StochasticAcceptor()
+acceptor = pyabc.StochasticAcceptor(pdf_norm_method=ScaledPDFNorm())
 kernel = pyabc.IndependentNormalKernel(
     var=[0.061763933333333]*60+ [0.050105066666667]*60, 
     keys=["IdSumstat__YAP_nuclear_observable","IdSumstat__YAP_total_observable"])
