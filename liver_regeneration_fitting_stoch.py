@@ -122,7 +122,7 @@ kernel = pyabc.IndependentNormalKernel(
 eps = pyabc.Temperature()
 
 abc = pyabc.ABCSMC(model, prior, kernel, population_size=1000,
-                   acceptor=acceptor, eps=eps, all_accepted=False)
+                   acceptor=acceptor, eps=eps, all_accepted=False, sampler=redis_sampler)
 
 db_path = "sqlite:///" + "/home/emad/Documents/test_liver_model_delete/" + "test_14param_Felipe.db"
 history = abc.new(db_path, dict_data)
