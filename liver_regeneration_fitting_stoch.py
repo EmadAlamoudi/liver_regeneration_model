@@ -113,7 +113,7 @@ prior = pyabc.Distribution(**{key: pyabc.RV("uniform", lb, ub - lb)
                               for key, (lb, ub) in limits.items()})
 
 
-redis_sampler = RedisEvalParallelSampler(host="127.0.0.1", port=1002, look_ahead=True)
+redis_sampler = RedisEvalParallelSampler(host=args.ip, port=args.port, look_ahead=False, wait_for_all_samples=True)
 
 acceptor = pyabc.StochasticAcceptor()
 kernel = pyabc.IndependentNormalKernel(
